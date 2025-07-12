@@ -10,3 +10,7 @@ class JobCreate(BaseModel):
 class JobRead(JobCreate):
     id: int
     created_at: datetime
+    
+class ResumeUpload(BaseModel):
+    filename: str
+    text: str
