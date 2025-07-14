@@ -15,3 +15,9 @@ def create_resume(session: Session, resume: ResumeRecord) -> ResumeRecord:
     session.commit()
     session.refresh(resume)
     return resume
+
+def create_match(session: Session, match: Match) -> Match:
+    session.add(match)
+    session.commit()
+    session.refresh(match)
+    return match
