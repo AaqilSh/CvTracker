@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from keybert import KeyBERT
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, util
 
 _kw_model = KeyBERT()
 _emb_model = SentenceTransformer("all-MiniLM-L6-v2")
