@@ -10,3 +10,7 @@ router = APIRouter(prefix="/jobs", tags=["Jobs"])
 def add_job(job: schemas.JobCreate, session: Session = Depends(get_session)):
     db_job = crud.create_job(session, models.Job(**job.dict()))
     return db_job
+
+@router.get("/", response_model=list[schemas.JobRead])
+def get_jobs(session: Session = Depends(get_session)):
+    return crud.list_jobs(session)
