@@ -3,6 +3,7 @@ from sqlmodel import Session
 from database import get_session
 import pdfplumber,docx, io
 from .. import crud, schemas, models
+from ..utils import match_score
 
 router = APIRouter(prefix="/resume", tags=["Resume"])
 
@@ -22,3 +23,21 @@ def upload_resume(file: UploadFile = File(...), session: Session = Depends(get_s
     text = _extract_text(file)
     record = crud.create_resume(session, models.ResumeRecord(filename=file.filename, text=text))
     return record
+
+@router.post("/match/{job_id}", response_model=schemas.MatchRead)
+def analyze_resume(job_id: int, resume_id: int, session: Session = Depends(get_session)):
+    job = session.get(models.Job, job_id)
+    resume = session.get(models.ResumeRecord, resume_id)
+    if not job or not resume:
+        raise HTTPException(404, "Job or Resume not found")
+
+    score, missing = match_score(resume.text, job.jd_text)
+    match = crud.create_match(
+        session,
+        models.Match(job_id=job.id, resume_id=resume.id,
+                     score=score, missing_keywords=",".join(missing))
+    )
+    return schemas.MatchRead(
+        **match.dict(),
+        missing_keywords=missing  
+    )
