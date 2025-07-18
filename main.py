@@ -17,3 +17,8 @@ app.include_router(jobs.router)
 app.include_router(resume.router)
 
 init_db()   
+
+
+@app.get("/")
+def read_root():
+    return {"msg": "Career Companion backend running"}
