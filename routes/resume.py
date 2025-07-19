@@ -2,7 +2,7 @@ from fastapi import APIRouter,UploadFile, HTTPException, Depends, File
 from sqlmodel import Session
 from database import get_session
 import pdfplumber,docx, io
-from .. import crud, schemas, models
+import crud,schemas, models
 from ..utils import match_score
 
 router = APIRouter(prefix="/resume", tags=["Resume"])
