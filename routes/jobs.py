@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 import crud
-from schemas import schemas
+import schemas
 from database import get_session
 from sqlmodel import Session
 from models import models
