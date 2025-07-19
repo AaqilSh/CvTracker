@@ -3,7 +3,7 @@ from sqlmodel import Session
 from database import get_session
 import pdfplumber,docx, io
 import crud,schemas, models
-from ..utils import match_score
+from utils.resume_analyzer import match_score
 
 router = APIRouter(prefix="/resume", tags=["Resume"])
 
