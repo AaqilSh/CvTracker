@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 from sqlmodel import SQLModel, Field
 
@@ -8,7 +8,7 @@ class Job(SQLModel, table=True):
     company: str
     status: str = "Applied"           
     jd_text: str                      
-    created_at: datetime = Field(default_factory=datetime.timezone.utc)
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
 
 class ResumeRecord(SQLModel, table=True):
