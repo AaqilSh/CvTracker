@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends
 import crud
 import schemas
+import models
+from fastapi import APIRouter, Depends
 from database import get_session
 from sqlmodel import Session
-from models import models
+
 router = APIRouter(prefix="/jobs", tags=["Jobs"])
 
 @router.post("/", response_model=schemas.JobRead)
