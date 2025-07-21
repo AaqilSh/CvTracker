@@ -7,5 +7,14 @@ export const getJobs = async () => {
   return res.data;
 };
 
+export const addJob = async (job: {
+  title: string;
+  company: string;
+  jd_text: string;
+  status?: string;
+}) => {
+  const res = await axios.post(`${API_BASE}/jobs/`, job);
+  return res.data;
+};
 
 
