@@ -17,4 +17,9 @@ export const addJob = async (job: {
   return res.data;
 };
 
-
+export const uploadResume = async (file: File) => {
+  const form = new FormData();
+  form.append("file", file);
+  const res = await axios.post(`${API_BASE}/resume/upload`, form);
+  return res.data;
+};
