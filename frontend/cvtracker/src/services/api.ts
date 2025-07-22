@@ -23,3 +23,10 @@ export const uploadResume = async (file: File) => {
   const res = await axios.post(`${API_BASE}/resume/upload`, form);
   return res.data;
 };
+
+export const getMatch = async (jobId: number, resumeId: number) => {
+  const res = await axios.post(
+    `${API_BASE}/resume/match/${jobId}?resume_id=${resumeId}`
+  );
+  return res.data;
+};

@@ -1,5 +1,3 @@
-// File: client/src/components/JobForm.tsx
-
 import { useState } from "react";
 // import { addJob } from "../services/api";
 
