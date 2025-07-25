@@ -30,6 +30,13 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
     }
   };
 
+    const statusOptions = [
+    { value: "Applied", color: "bg-blue-100 text-blue-800", icon: "📝" },
+    { value: "Interview", color: "bg-yellow-100 text-yellow-800", icon: "💬" },
+    { value: "Offer", color: "bg-green-100 text-green-800", icon: "🎉" },
+    { value: "Rejected", color: "bg-red-100 text-red-800", icon: "❌" }
+  ];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mb-6">
       <input className="border p-2 w-full" placeholder="Job Title"
