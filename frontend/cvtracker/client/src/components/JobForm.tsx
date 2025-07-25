@@ -13,11 +13,21 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
     status: "Applied",
   });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addJob(form);
-    setForm({ title: "", company: "", jd_text: "", status: "Applied" });
-    onJobAdded();
+    setIsSubmitting(true);
+    try {
+      await addJob(form);
+      setForm({ title: "", company: "", jd_text: "", status: "Applied" });
+      onJobAdded();
+    } catch (error) {
+      console.error('Error adding job:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
