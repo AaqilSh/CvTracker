@@ -99,6 +99,24 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
           ))}
         </select>
       </div>
+
+         <button
+        type="submit"
+        disabled={isSubmitting || !form.title || !form.company}
+        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 focus:ring-4 focus:ring-blue-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+      >
+        {isSubmitting ? (
+          <>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+            <span>Adding...</span>
+          </>
+        ) : (
+          <>
+            <span>✨</span>
+            <span>Add Application</span>
+          </>
+        )}
+      </button>
       </form>
       );
 }
