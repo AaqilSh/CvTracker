@@ -82,6 +82,23 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
           onChange={(e) => setForm({ ...form, jd_text: e.target.value })}
         />
       </div>
+
+           <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Application Status
+        </label>
+        <select
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none bg-white"
+          value={form.status}
+          onChange={(e) => setForm({ ...form, status: e.target.value })}
+        >
+          {statusOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.icon} {option.value}
+            </option>
+          ))}
+        </select>
+      </div>
       </form>
       );
 }
