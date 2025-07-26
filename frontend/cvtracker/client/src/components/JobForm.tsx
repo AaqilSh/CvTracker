@@ -68,6 +68,20 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
           onChange={(e) => setForm({ ...form, company: e.target.value })}
         />
       </div>
+           {/* Job Description */}
+      
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Job Description
+        </label>
+        <textarea
+          rows={4}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none resize-none"
+          placeholder="Paste the job description here..."
+          value={form.jd_text}
+          onChange={(e) => setForm({ ...form, jd_text: e.target.value })}
+        />
+      </div>
       </form>
       );
 }
