@@ -45,6 +45,19 @@ export default function JobList({ jobs }: JobListProps) {
               {job.status}
             </span>
           </div>
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+            <div className="text-sm text-gray-500">
+              Applied on {new Date().toLocaleDateString()}
+            </div>
+            <div className="flex space-x-2">
+              <button className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors duration-200">
+                Edit
+              </button>
+              <button className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors duration-200">
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       ))}
     </div>
