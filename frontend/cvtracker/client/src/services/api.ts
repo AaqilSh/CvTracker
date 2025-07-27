@@ -30,3 +30,8 @@ export const getMatch = async (jobId: number, resumeId: number) => {
   );
   return res.data;
 };
+
+export const deleteJob = async (jobId: number) => {
+  const res = await axios.delete(`${API_BASE}/jobs/${jobId}`);
+  return res.data;
+};
