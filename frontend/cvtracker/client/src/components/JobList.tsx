@@ -3,6 +3,8 @@ interface Job {
   title: string;
   company: string;
   status: string;
+  jd_text?: string;
+  created_at?: string;
 }
 
 interface JobListProps {
