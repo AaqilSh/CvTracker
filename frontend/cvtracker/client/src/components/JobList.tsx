@@ -88,3 +88,7 @@ export default function JobList({ jobs }: JobListProps) {
     </div>
   );
 }
+function onJobUpdated() {
+  throw new Error("Function not implemented.");
+}
+
