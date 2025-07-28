@@ -1,3 +1,5 @@
+import { deleteJob } from "../services/api";
+
 interface Job {
   id: number;
   title: string;
@@ -9,7 +11,10 @@ interface Job {
 
 interface JobListProps {
   jobs: Job[];
+    onJobUpdated: () => Promise<void>;
+
 }
+
 
 export default function JobList({ jobs }: JobListProps) {
   const statusOptions = [
