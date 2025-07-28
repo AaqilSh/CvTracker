@@ -15,7 +15,6 @@ interface JobListProps {
 
 }
 
-
 export default function JobList({ jobs }: JobListProps) {
   const statusOptions = [
     { value: "Applied", color: "bg-blue-100 text-blue-800", icon: "📝" },
@@ -27,7 +26,17 @@ export default function JobList({ jobs }: JobListProps) {
   const getStatusStyle = (status: string) => {
     return statusOptions.find(option => option.value === status) || statusOptions[0];
   };
-
+  
+  const handleDelete = async (jobId: number) => {
+    if (window.confirm('Are you sure you want to delete this job application?')) {
+      try {
+        await deleteJob(jobId);
+        onJobUpdated();
+      } catch (error) {
+        console.error('Error deleting job:', error);
+      }
+    }
+  };
   if (jobs.length === 0) {
     return (
       <div className="text-center py-12">
@@ -60,7 +69,7 @@ export default function JobList({ jobs }: JobListProps) {
               <button                 onClick={() => console.log('Edit job:', job.id)} className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 Edit
               </button>
-              <button className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors duration-200">
+              <button onClick={() => handleDelete(job.id)} className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors duration-200">
                 Delete
               </button>
             </div>
