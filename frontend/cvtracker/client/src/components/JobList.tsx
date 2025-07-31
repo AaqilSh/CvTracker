@@ -15,7 +15,7 @@ interface JobListProps {
 
 }
 
-export default function JobList({ jobs }: JobListProps) {
+export default function JobList({ jobs,onJobUpdated }: JobListProps) {
   const statusOptions = [
     { value: "Applied", color: "bg-blue-100 text-blue-800", icon: "📝" },
     { value: "Interview", color: "bg-yellow-100 text-yellow-800", icon: "💬" },
