@@ -14,7 +14,8 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
   });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-
+    const [showSuccess, setShowSuccess] = useState(false);
+    
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
     try {
       await addJob(form);
       setForm({ title: "", company: "", jd_text: "", status: "Applied" });
+      setShowSuccess(true);
       onJobAdded();
     } catch (error) {
       console.error('Error adding job:', error);
