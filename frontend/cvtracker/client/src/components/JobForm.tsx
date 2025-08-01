@@ -24,6 +24,7 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
       await addJob(form);
       setForm({ title: "", company: "", jd_text: "", status: "Applied" });
       setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 3000); // Hide after 3 seconds  
       onJobAdded();
     } catch (error) {
       console.error('Error adding job:', error);
