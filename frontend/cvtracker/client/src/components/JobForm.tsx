@@ -77,6 +77,9 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Job Description
         </label>
+        <span className="text-xs text-gray-500">
+          {form.jd_text.length}/500 characters
+        </span>
         <textarea
           rows={4}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none resize-none"
