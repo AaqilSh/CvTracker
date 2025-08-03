@@ -82,6 +82,7 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
         </span>
         <textarea
           rows={4}
+          maxLength={500}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none resize-none"
           placeholder="Paste the job description here..."
           value={form.jd_text}
