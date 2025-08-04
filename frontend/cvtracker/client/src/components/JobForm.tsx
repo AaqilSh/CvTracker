@@ -124,6 +124,19 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
           </>
         )}
       </button>
+
+      {showSuccess && (
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+          <div className="flex-shrink-0">
+            <span className="text-green-500 text-xl">✅</span>
+          </div>
+          <div>
+            <p className="text-sm font-medium text-green-800">Success!</p>
+            <p className="text-sm text-green-600">Job application added successfully.</p>
+          </div>
+        </div>
+      )}
+      
       </form>
       );
 }
