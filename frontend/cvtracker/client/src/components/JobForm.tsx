@@ -15,7 +15,8 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-    
+    const [errorMsg, setErrorMsg] = useState(""); 
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
