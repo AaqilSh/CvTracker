@@ -28,6 +28,7 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
       setTimeout(() => setShowSuccess(false), 3000); // Hide after 3 seconds  
       onJobAdded();
     } catch (error) {
+      setErrorMsg("Failed to add job. Please try again.");
       console.error('Error adding job:', error);
     } finally {
       setIsSubmitting(false);
