@@ -139,6 +139,13 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
         </div>
       )}
       
+      {errorMsg && (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3 mt-2">
+        <span className="text-red-500 text-xl">❌</span>
+        <span className="text-sm text-red-700">{errorMsg}</span>
+      </div>
+    )}
+      
       </form>
       );
 }
