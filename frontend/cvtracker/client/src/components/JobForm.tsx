@@ -126,7 +126,14 @@ export default function JobForm({ onJobAdded }: JobFormProps) {
           </>
         )}
       </button>
-
+      <button
+          type="button"
+          onClick={() => setForm({ title: "", company: "", jd_text: "", status: "Applied" })}
+          disabled={isSubmitting}
+          className="flex-1 bg-gray-100 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+          Clear
+          </button>
       {showSuccess && (
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
           <div className="flex-shrink-0">
