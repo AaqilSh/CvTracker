@@ -16,10 +16,10 @@ interface Job {
 
 export default function JobForm({ onJobAdded, editingJob, onJobUpdated }: JobFormProps) {
   const [form, setForm] = useState({
-    title: "",
-    company: "",
-    jd_text: "",
-    status: "Applied",
+    title: editingJob?.title || "",
+    company: editingJob?.company || "",
+    jd_text: editingJob?.jd_text || "",
+    status: editingJob?.status || "Applied",
   });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
