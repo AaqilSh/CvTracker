@@ -3,9 +3,18 @@ import { addJob } from "../services/api";
 
 interface JobFormProps {
   onJobAdded: () => void;
+  editingJob?: Job | null;
+  onJobUpdated?: () => void;
+}
+interface Job {
+  id: number;
+  title: string;
+  company: string;
+  jd_text: string;
+  status: string;
 }
 
-export default function JobForm({ onJobAdded }: JobFormProps) {
+export default function JobForm({ onJobAdded, editingJob, onJobUpdated }: JobFormProps) {
   const [form, setForm] = useState({
     title: "",
     company: "",
