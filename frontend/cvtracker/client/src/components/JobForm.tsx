@@ -1,4 +1,4 @@
-  import { useState } from "react";
+  import { useEffect, useState } from "react";
 import { addJob } from "../services/api";
 
 interface JobFormProps {
@@ -26,6 +26,16 @@ export default function JobForm({ onJobAdded, editingJob, onJobUpdated }: JobFor
     const [showSuccess, setShowSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState(""); 
 
+useEffect(() => {
+  if (editingJob) {
+    setForm({
+      title: editingJob.title,
+      company: editingJob.company,
+      jd_text: editingJob.jd_text || "",
+      status: editingJob.status,
+    });
+  }
+}, [editingJob]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
