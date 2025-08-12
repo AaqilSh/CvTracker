@@ -35,3 +35,13 @@ export const deleteJob = async (jobId: number) => {
   const res = await axios.delete(`${API_BASE}/jobs/${jobId}`);
   return res.data;
 };
+
+export const updateJob = async (jobId: number, job: {
+  title: string;
+  company: string;
+  jd_text: string;
+  status: string;
+}) => {
+  const res = await axios.put(`${API_BASE}/jobs/${jobId}`, job);
+  return res.data;
+};
