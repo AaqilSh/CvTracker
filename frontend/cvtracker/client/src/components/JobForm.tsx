@@ -47,12 +47,11 @@ useEffect(() => {
         onJobUpdated?.();
       } else {
         await addJob(form);
+        setForm({ title: "", company: "", jd_text: "", status: "Applied" });
+        onJobAdded();
       }
-      await addJob(form);
-      setForm({ title: "", company: "", jd_text: "", status: "Applied" });
       setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 3000); // Hide after 3 seconds  
-      onJobAdded();
+      setTimeout(() => setShowSuccess(false), 3000); // Hide after 3 seconds
     } catch (error) {
       setErrorMsg("Failed to add job. Please try again.");
       console.error('Error adding job:', error);
