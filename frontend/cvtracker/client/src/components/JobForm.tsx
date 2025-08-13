@@ -1,5 +1,6 @@
   import { useEffect, useState } from "react";
-import { addJob } from "../services/api";
+import { addJob, updateJob } from "../services/api";
+import { on } from "events";
 
 interface JobFormProps {
   onJobAdded: () => void;
@@ -41,6 +42,12 @@ useEffect(() => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      if(editingJob){
+        await updateJob(editingJob.id, form);
+        onJobUpdated?.();
+      } else {
+        await addJob(form);
+      }
       await addJob(form);
       setForm({ title: "", company: "", jd_text: "", status: "Applied" });
       setShowSuccess(true);
