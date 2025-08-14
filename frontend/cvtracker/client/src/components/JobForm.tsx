@@ -147,7 +147,7 @@ useEffect(() => {
         ) : (
           <>
             <span>✨</span>
-            <span>Add Application</span>
+            <span>{editingJob ? "Update Application" : "Add Application"}</span> 
           </>
         )}
       </button>
