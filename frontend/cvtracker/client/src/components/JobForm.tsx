@@ -80,6 +80,7 @@ useEffect(() => {
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none"
           placeholder="e.g. Senior Software Engineer"
           value={form.title}
+          disabled={isSubmitting}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
         />
       </div>
