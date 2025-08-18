@@ -82,6 +82,7 @@ useEffect(() => {
           value={form.title}
           disabled={isSubmitting}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
+          autoFocus
         />
       </div>
 
