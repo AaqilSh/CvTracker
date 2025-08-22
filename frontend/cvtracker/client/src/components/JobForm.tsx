@@ -98,6 +98,9 @@ useEffect(() => {
           placeholder="e.g. Google, Microsoft, etc."
           value={form.company}
           onChange={(e) => setForm({ ...form, company: e.target.value })}
+          onKeyDown={(e) => {
+              if (e.key === "Escape") setForm({ title: "", company: "", jd_text: "", status: "Applied" });
+            }}
         />
       </div>
            {/* Job Description */}
