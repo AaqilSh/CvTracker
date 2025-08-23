@@ -12,10 +12,11 @@ interface Job {
 interface JobListProps {
   jobs: Job[];
     onJobUpdated: () => Promise<void>;
+    onEditJob: (job: Job) => void; 
 
 }
 
-export default function JobList({ jobs,onJobUpdated }: JobListProps) {
+export default function JobList({ jobs,onJobUpdated,onEditJob }: JobListProps) {
   const statusOptions = [
     { value: "Applied", color: "bg-blue-100 text-blue-800", icon: "📝" },
     { value: "Interview", color: "bg-yellow-100 text-yellow-800", icon: "💬" },
@@ -66,15 +67,19 @@ export default function JobList({ jobs,onJobUpdated }: JobListProps) {
               Applied on {new Date().toLocaleDateString()}
             </div>
             <div className="flex space-x-2">
-              <button                 onClick={() => console.log('Edit job:', job.id)} className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors duration-200">
+              <button onClick={() => onEditJob(job)} className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 Edit
               </button>
               <button onClick={() => handleDelete(job.id)} className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors duration-200">
                 Delete
               </button>
+              
             </div>
           </div>
-                 
+          <div className="mt-4">
+            <h4 className="text-sm font-medium text-gray-900">Job Description</h4>
+            <p className="mt-1 text-sm text-gray-600">{job.jd_text || 'No job description provided.'}</p>
+          </div>
         </div>
       ))}
     </div>
