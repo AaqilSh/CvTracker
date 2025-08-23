@@ -53,7 +53,8 @@ return (
                 <p className="text-gray-600 mt-1">Keep track of all your job applications in one place</p>
               </div>
               <div className="p-6">
-                <JobList jobs={jobs} onJobUpdated={fetchJobs} />
+                <JobList jobs={jobs} onJobUpdated={fetchJobs} onEditJob={function (job: any): void {
+                }} />
               </div>
             </div>
           </div>
