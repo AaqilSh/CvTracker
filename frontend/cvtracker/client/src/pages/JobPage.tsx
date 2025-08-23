@@ -6,6 +6,7 @@ import { getJobs } from "../services/api";
 export default function JobPage() {
   const [jobs, setJobs] = useState([]);
 
+
   const fetchJobs = async () => {
     const data = await getJobs();
     setJobs(data);
