@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import JobForm from "../components/JobForm";
 import JobList from "../components/JobList";
 import { getJobs } from "../services/api";
+import { Job } from "../components/JobForm";
 
 export default function JobPage() {
   const [jobs, setJobs] = useState([]);
+  const [editingJob, setEditingJob] = useState<Job | null>(null);
+
 
 
   const fetchJobs = async () => {
