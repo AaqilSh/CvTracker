@@ -44,7 +44,13 @@ return (
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-sm border p-6 sticky top-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Add New Application</h2>
-              <JobForm onJobAdded={fetchJobs} />
+              <JobForm onJobAdded={fetchJobs}
+              editingJob={editingJob}
+                onJobUpdated={() => {
+                  fetchJobs();
+                  setEditingJob(null);
+                }}
+                 />
             </div>
           </div>
 
