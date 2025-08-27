@@ -7,7 +7,7 @@ interface JobFormProps {
   editingJob?: Job | null;
   onJobUpdated?: () => void;
 }
-interface Job {
+export interface Job {
   id: number;
   title: string;
   company: string;
