@@ -11,7 +11,7 @@ interface Job {
 
 interface JobListProps {
   jobs: Job[];
-    onJobUpdated: () => Promise<void>;
+    onJobUpdated: () => Promise<void> | void;
     onEditJob: (job: Job) => void; 
 
 }

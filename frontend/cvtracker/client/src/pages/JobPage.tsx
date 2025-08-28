@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import JobForm from "../components/JobForm";
 import JobList from "../components/JobList";
 import { getJobs } from "../services/api";
-import { Job } from "../components/JobForm";
+import type { Job } from "../components/JobForm";
 
 export default function JobPage() {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [editingJob, setEditingJob] = useState<Job | null>(null);
 
 
@@ -62,8 +62,7 @@ return (
                 <p className="text-gray-600 mt-1">Keep track of all your job applications in one place</p>
               </div>
               <div className="p-6">
-                <JobList jobs={jobs} onJobUpdated={fetchJobs} onEditJob={function (job: any): void {
-                }} />
+                <JobList jobs={jobs} onJobUpdated={fetchJobs} onEditJob={(job) => setEditingJob({ ...job, jd_text: job.jd_text ?? "" })} />
               </div>
             </div>
           </div>
