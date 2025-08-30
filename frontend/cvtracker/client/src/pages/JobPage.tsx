@@ -44,6 +44,15 @@ return (
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-sm border p-6 sticky top-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">{editingJob ? "Edit Application" : "Add New Application"}</h2>
+              {editingJob && (
+                <button
+                  type="button"
+                  onClick={() => setEditingJob(null)}
+                  className="mb-4 bg-gray-100 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition-all duration-200"
+                >
+                  Cancel Edit
+                </button>
+              )}
               <JobForm onJobAdded={fetchJobs}
               editingJob={editingJob}
                 onJobUpdated={() => {
