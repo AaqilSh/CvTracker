@@ -12,11 +12,12 @@ interface Job {
 interface JobListProps {
   jobs: Job[];
     onJobUpdated: () => Promise<void> | void;
-    onEditJob: (job: Job) => void; 
+    onEditJob: (job: Job) => void;
+    editingJob?: Job | null; 
 
 }
 
-export default function JobList({ jobs,onJobUpdated,onEditJob }: JobListProps) {
+export default function JobList({ jobs,onJobUpdated,onEditJob,editingJob }: JobListProps) {
   const statusOptions = [
     { value: "Applied", color: "bg-blue-100 text-blue-800", icon: "📝" },
     { value: "Interview", color: "bg-yellow-100 text-yellow-800", icon: "💬" },

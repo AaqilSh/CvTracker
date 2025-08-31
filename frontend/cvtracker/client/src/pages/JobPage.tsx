@@ -71,7 +71,7 @@ return (
                 <p className="text-gray-600 mt-1">Keep track of all your job applications in one place</p>
               </div>
               <div className="p-6">
-                <JobList jobs={jobs} onJobUpdated={fetchJobs} onEditJob={(job) => setEditingJob({ ...job, jd_text: job.jd_text ?? "" })} />
+                <JobList jobs={jobs} onJobUpdated={fetchJobs} onEditJob={(job) => setEditingJob({ ...job, jd_text: job.jd_text ?? "" })} editingJob={editingJob} />
               </div>
             </div>
           </div>
