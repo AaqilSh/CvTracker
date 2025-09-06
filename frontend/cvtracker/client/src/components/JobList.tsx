@@ -52,7 +52,7 @@ export default function JobList({ jobs,onJobUpdated,onEditJob,editingJob }: JobL
   return (
     <div className="space-y-4">
       {jobs.map((job) => (
-        <div key={job.id} className={`bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-200 transition-all duration-300
+        <div key={job.id} className={`bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-200 transition-all duration-300 transition-transform duration-200
             ${editingJob?.id === job.id ? "ring-2 ring-blue-400 scale-105 shadow-xl" : ""}`}>
           <div className="flex items-start justify-between">
             <div className="flex-1">
