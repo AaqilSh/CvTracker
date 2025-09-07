@@ -54,6 +54,12 @@ export default function JobList({ jobs,onJobUpdated,onEditJob,editingJob }: JobL
       {jobs.map((job) => (
         <div key={job.id} className={`bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-200 transition-all duration-300 transition-transform duration-200
             ${editingJob?.id === job.id ? "ring-2 ring-blue-400 scale-105 shadow-xl" : ""}`}>
+          <div className="absolute -mt-4 -ml-4">
+            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusStyle(job.status).color}`}>
+              <span className="mr-1">{getStatusStyle(job.status).icon}</span>
+              {job.status}
+            </span>
+          </div>
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-gray-900 mb-1">{job.title}</h3>
